@@ -74,3 +74,9 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+
+(use-package! copilot
+  :hook (prog-mode . copilot-mode)
+  :bind (:map copilot-completion-map
+              ("C-l" . 'copilot-accept-completion)
+              ("C-L" . 'copilot-accept-completion)))
