@@ -32,7 +32,12 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme nil)
+
+;; If it is between 6am and 6pm, use the light theme, otherwise use the dark theme
+(if (and (>= (string-to-number (format-time-string "%H")) 6)
+         (<= (string-to-number (format-time-string "%H")) 18))
+    (setq doom-theme 'doom-tomorrow-day)
+  (setq doom-theme 'doom-pine))
 (set-face-attribute 'default nil :height 160)
 (menu-bar-mode 1)
 
