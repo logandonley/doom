@@ -35,7 +35,7 @@
 
 ;; If it is between 6am and 6pm, use the light theme, otherwise use the dark theme
 (if (and (>= (string-to-number (format-time-string "%H")) 6)
-         (<= (string-to-number (format-time-string "%H")) 18))
+         (<= (string-to-number (format-time-string "%H")) 16))
     (setq doom-theme 'doom-tomorrow-day)
   (setq doom-theme 'doom-pine))
 (set-face-attribute 'default nil :height 160)
@@ -79,6 +79,7 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+(define-key global-map (kbd "C-l") nil)
 
 (use-package! copilot
   :hook (prog-mode . copilot-mode)
